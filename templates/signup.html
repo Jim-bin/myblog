@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>半路出家</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link href="../static/css/basic.css" rel="stylesheet" type="text/css" media="screen" />
+  <script src="../static/js/jquery-1.11.2.js"></script>
+{#  <script src="../static/js/signup.js"></script>#}
+</head>
+
+<body>
+
+  <header id="header">
+    <nav id="menu">
+      <ul>
+        <li class="active"><a href="/">Homepage</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/showsignup">Sign Up</a></li>
+        <li><a href="/showsignin">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <article>
+    <div class="zhuce">
+      <h1 id="signup">Please sign up</h1>
+      <form class="qianhou" action="/signup" method="post">
+        <ul>
+          <li><label for="inputName" class="qian">User name</label></li>
+          <li><input type="name" name="inputName" id="inputName" class="hou" placeholder="User name" required autofocus></li>
+        </ul>
+
+        <ul>
+          <li><label for="inputEmail" class="qian">Email address</label></li>
+          <li><input type="email" name="inputEmail" id="inputEmail" class="hou" placeholder="Email address" required autofocus></li>
+        </ul>
+
+        <ul>
+          <li><label for="inputPassword" class="qian">Password</label></li>
+          <li><input type="password" name="inputPassword" id="inputPassword" class="hou" placeholder="Password" required></li>
+        </ul>
+
+        <ul>
+          <button id="btnsignup" type="submit" >Sign up</button>
+        </ul>
+      </form>
+    </div>
+  </article>
+
+</body>
+</html>

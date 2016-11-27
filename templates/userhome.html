@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>雪山飞狐</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link href="../static/css/basic.css" rel="stylesheet" type="text/css" media="screen" />
+
+  <script src="../static/js/jquery-1.11.2.js"></script>
+  <script>
+    $(function() {
+        $.ajax({
+            url: '/getPost',
+            type: 'GET',
+            success: function(res) {
+{#                console.log(res);#}
+                var div = $('<div>'); // 创建div元素
+                div.attr('class','list-group');  // 给div添加class属性值为list-group
+                var a = $('<a>');
+                a.attr('class','list-active');
+                var h4 = $('<h4>');
+                h4.attr('class','list-head');
+                var p = $('<p>');
+                p.attr('class','list-text');
+
+                a.append(h4, p);
+                div.append(a);
+
+                var postObj = JSON.parse(res);
+                var post = '';
+                $.each(postObj, function(index, value){
+                    post = $(div).clone();
+                    $(post).find('h4').text(value.post_title);
+                    $(post).find('p').text(value.post_content);
+                    $('#content').append(post);
+
+                });
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
+</head>
+
+<body>
+
+  <header id="header">
+  	<nav id="menu">
+  		<ul>
+  			<li class="active"><a href="/logout">Logout</a></li>
+            <li><a href="/showpost">Add Post</a></li>
+  		</ul>
+  	</nav>
+  </header>
+  <!-- end #menu -->
+
+
+  <article>
+
+  	<div id="logo">
+  		<h1><a href="#">雪山飞狐</a></h1>
+  	</div>
+
+    <div id="page">
+      <div id="sidebar">
+        <ul>
+          <li>
+            <h2>Introduction</h2>
+            <div id="bg1">
+              <div id="bg2">
+                <p>python</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <h2>Tag of Blog</h2>
+            <div id="bg1">
+              <div id="bg2">
+                <ul>
+                  <li><a href="#">Python</a></li>
+                  <li><a href="#">Flask</a></li>
+                  <li><a href="#">Mysql</a></li>
+                  <li><a href="#">Php</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <h2>Mostly Visited</h2>
+            <div id="bg1">
+              <div id="bg2">
+                <ul>
+                  <li><a href="#">Python</a></li>
+                  <li><a href="#">Flask</a></li>
+                  <li><a href="#">Mysql</a></li>
+                  <li><a href="#">Php</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- end #sidebar -->
+
+      <div id="content">
+
+
+      <!-- end #content -->
+
+      </div>
+    </div>
+    <!-- end #page -->
+  </article>
+
+  <footer>
+    <div id="footer-bgcontent">
+    	<div id="footer">
+    		<p>&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+    	</div>
+    	<!-- end #footer -->
+    </div>
+  </footer>
+</body>
+</html>
